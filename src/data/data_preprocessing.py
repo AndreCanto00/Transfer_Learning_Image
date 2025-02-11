@@ -34,6 +34,10 @@ def split_dataset(dataset_path: str) -> None:
         class_folder = os.path.join(dataset_path, class_name)
         images = [img for img in listdir(class_folder) if isfile(join(class_folder, img))]
 
+        if not images:
+            print(f"⚠️ No images found in class folder: {class_folder}")
+            continue
+
         # Suddivisione train (70%), val (15%), test (15%)
         train_images, test_val_images = train_test_split(images, test_size=0.3, random_state=42)
         val_images, test_images = train_test_split(test_val_images, test_size=0.5, random_state=42)

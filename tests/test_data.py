@@ -10,9 +10,11 @@ def sample_data_dir(tmp_path):
     """Create a temporary directory with sample data for testing."""
     data_dir = tmp_path / "test_data"
     data_dir.mkdir()
+    class_dir = data_dir / "class_a"
+    class_dir.mkdir()
     # Aggiungi alcuni file di esempio nella directory
     for i in range(5):
-        with open(data_dir / f"image_{i}.jpg", "w") as f:
+        with open(class_dir / f"image_{i}.jpg", "w") as f:
             f.write("test image data")
     return data_dir
 
