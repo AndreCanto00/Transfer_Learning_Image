@@ -9,7 +9,7 @@ from .data.data_loader import create_data_loaders
 from .data.data_preprocessing import split_dataset
 
 # src/models/__init__.py
-from models.model import ModelBuilder
+from src.models.model import ModelBuilder
 from models.training import ModelTrainer, hyperparameter_search
 from models.evaluation import ModelEvaluator, evaluate_and_save_model
 

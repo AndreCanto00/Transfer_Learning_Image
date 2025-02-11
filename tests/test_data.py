@@ -2,8 +2,8 @@ import pytest
 import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from data.data_preprocessing import split_dataset
-from data.data_loader import create_data_loaders
+from src.data.data_preprocessing import split_dataset
+from src.data.data_loader import create_data_loaders
 
 def test_split_dataset(sample_data_dir):
     """Test dataset splitting functionality."""

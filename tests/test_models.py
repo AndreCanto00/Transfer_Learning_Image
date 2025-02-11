@@ -1,5 +1,8 @@
 import pytest
 import torch
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.models.model import ModelBuilder
 from src.models.training import ModelTrainer
 from src.models.evaluation import ModelEvaluator
