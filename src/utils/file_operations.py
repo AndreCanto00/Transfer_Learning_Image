@@ -17,7 +17,7 @@ def organize_files(source_path: str, destination_path: str) -> None:
     for file_name in os.listdir(source_path):
         source_file_path = os.path.join(source_path, file_name)
         if os.path.isfile(source_file_path):
-            prefix = file_name[:9]
+            prefix = file_name.split('_')[0]  # Correggi il modo in cui viene estratto il prefisso
             destination_folder = os.path.join(destination_path, prefix)
             ensure_directory(destination_folder)
             destination_file_path = os.path.join(destination_folder, file_name)
