@@ -1,0 +1,28 @@
+# Data Configuration
+data:
+  base_path: "Dataset/miniImageNet"
+  batch_size: 32
+  num_workers: 4
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+# Model Configuration
+model:
+  name: "resnet18"
+  num_classes: 64
+  pretrained: false
+
+# Training Configuration
+training:
+  num_epochs: 10
+  learning_rates: [0.001, 0.0001]
+  weight_decays: [0.0001, 0.00001]
+  optimizer_names: ["Adam", "SGD"]
+  device: "cuda" # will fall back to "cpu" if cuda not available
+
+# Paths Configuration
+paths:
+  model_save_dir: "saved_models"
+  logs_dir: "logs"
+  checkpoints_dir: "checkpoints"
