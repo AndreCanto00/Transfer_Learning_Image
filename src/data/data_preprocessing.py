@@ -48,3 +48,4 @@ def split_dataset(dataset_path: str) -> None:
     # Organize files in their respective directories
     for path in [train_path, val_path, test_path]:
         organize_files(path, path)
+
