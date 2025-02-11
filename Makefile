@@ -33,12 +33,12 @@ lint:
     $(VENV_BIN)/black src/ tests/
 
 test:
-    PYTHONPATH=src $(VENV_BIN)/pytest tests/ -v
+    PYTHONPATH=$(PWD)/src $(VENV_BIN)/pytest tests/ -v
 
 run:
-    PYTHONPATH=src $(VENV_BIN)/python main.py
+    PYTHONPATH=$(PWD)/src $(VENV_BIN)/python main.py
 
 train:
-    PYTHONPATH=src $(VENV_BIN)/python -c "from src.models.training import train_model; train_model()"
+    PYTHONPATH=$(PWD)/src $(VENV_BIN)/python -c "from src.models.training import train_model; train_model()"
 
 evaluate:
