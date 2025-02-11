@@ -6,6 +6,17 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 from src.models.model import ModelBuilder
 from src.models.training import ModelTrainer
 from src.models.evaluation import ModelEvaluator
+import unittest
+
+class TestModelsImport(unittest.TestCase):
+    def test_import(self):
+        try:
+            import src.models
+        except ImportError:
+            self.fail("Importazione del modulo `models` fallita")
+
+if __name__ == '__main__':
+    unittest.main()
 
 def test_model_builder():
     """Test model builder functionality."""

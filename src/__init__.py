@@ -15,3 +15,6 @@ from models.evaluation import ModelEvaluator, evaluate_and_save_model
 
 # src/utils/__init__.py
 from utils.file_operations import ensure_directory, get_class_directories, organize_files
+
+# src/__init__.py
+# Questo file è intenzionalmente lasciato vuoto per rendere `src` un modulo Python.
