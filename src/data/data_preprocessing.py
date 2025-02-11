@@ -1,5 +1,5 @@
 import os
-from os.path import join
+from os.path import join, isfile
 import shutil
 from sklearn.model_selection import train_test_split
 from typing import Tuple, List
