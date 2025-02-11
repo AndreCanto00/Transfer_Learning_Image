@@ -29,8 +29,8 @@ clean:
     find . -type d -name "__pycache__" -delete
 
 lint:
-    $(VENV_BIN)/flake8 src/ tests/
-    $(VENV_BIN)/black src/ tests/
+    PYTHONPATH=$(PWD)/src $(VENV_BIN)/flake8 src/ tests/
+    PYTHONPATH=$(PWD)/src $(VENV_BIN)/black src/ tests/
 
 test:
     PYTHONPATH=$(PWD)/src $(VENV_BIN)/pytest tests/ -v
@@ -42,3 +42,10 @@ train:
     PYTHONPATH=$(PWD)/src $(VENV_BIN)/python -c "from src.models.training import train_model; train_model()"
 
 evaluate:
+	$(VENV_BIN)/python -c "from src.models.evaluation import evaluate_model; evaluate_model()"
+
+save-model:
+	$(VENV_BIN)/python -c "from src.models.model import save_pretrained_model; save_pretrained_model()"
+
+setup-dev: install
+	$(VENV_BIN)/pip install -r requirements-dev.txt
