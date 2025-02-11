@@ -27,6 +27,10 @@ def test_main_execution(sample_data_dir, monkeypatch):
             'learning_rates': [0.001],
             'weight_decays': [0.0001],
             'optimizer_names': ['Adam']
+        },
+        'paths': {  # Aggiungi questa sezione per evitare il KeyError
+            'output': str(sample_data_dir / "output"),
+            'logs': str(sample_data_dir / "logs")
         }
     }
     
