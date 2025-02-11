@@ -11,41 +11,34 @@ VENV_BIN = $(VENV)/bin
 all: install lint test
 
 $(VENV)/bin/activate:
-	$(PYTHON) -m venv $(VENV)
-	$(VENV_BIN)/pip install --upgrade pip
-	$(VENV_BIN)/pip install -r requirements.txt
+    $(PYTHON) -m venv $(VENV)
+    $(VENV_BIN)/pip install --upgrade pip
+    $(VENV_BIN)/pip install -r requirements.txt
 
 install: $(VENV)/bin/activate
 
 clean:
-	rm -rf __pycache__
-	rm -rf $(VENV)
-	rm -rf .pytest_cache
-	rm -rf .coverage
-	rm -rf saved_models/*
-	rm -rf logs/*
-	rm -rf checkpoints/*
-	find . -type f -name "*.pyc" -delete
-	find . -type d -name "__pycache__" -delete
+    rm -rf __pycache__
+    rm -rf $(VENV)
+    rm -rf .pytest_cache
+    rm -rf .coverage
+    rm -rf saved_models/*
+    rm -rf logs/*
+    rm -rf checkpoints/*
+    find . -type f -name "*.pyc" -delete
+    find . -type d -name "__pycache__" -delete
 
 lint:
-	$(VENV_BIN)/flake8 src/ tests/
-	$(VENV_BIN)/black src/ tests/
+    $(VENV_BIN)/flake8 src/ tests/
+    $(VENV_BIN)/black src/ tests/
 
 test:
-	$(VENV_BIN)/pytest tests/ -v
+    PYTHONPATH=src $(VENV_BIN)/pytest tests/ -v
 
 run:
-	$(VENV_BIN)/python main.py
+    PYTHONPATH=src $(VENV_BIN)/python main.py
 
 train:
-	$(VENV_BIN)/python -c "from src.models.training import train_model; train_model()"
+    PYTHONPATH=src $(VENV_BIN)/python -c "from src.models.training import train_model; train_model()"
 
 evaluate:
-	$(VENV_BIN)/python -c "from src.models.evaluation import evaluate_model; evaluate_model()"
-
-save-model:
-	$(VENV_BIN)/python -c "from src.models.model import save_pretrained_model; save_pretrained_model()"
-
-setup-dev: install
-	$(VENV_BIN)/pip install -r requirements-dev.txt
