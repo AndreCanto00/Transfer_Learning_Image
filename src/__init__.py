@@ -5,7 +5,7 @@ from . import utils
 __version__ = '0.1.0'
 
 # src/data/__init__.py
-from data.data_loader import create_data_loaders
+from src.data.data_loader import create_data_loaders
 from data.data_preprocessing import split_dataset
 
 # src/models/__init__.py
