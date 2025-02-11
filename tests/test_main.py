@@ -2,6 +2,7 @@ import pytest
 import yaml
 import os
 import sys
+from PIL import Image
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from main import main
 
@@ -15,6 +16,19 @@ def test_config_loading():
     assert 'model' in config
     assert 'training' in config
     assert 'paths' in config
+
+@pytest.fixture
+def sample_data_dir(tmp_path):
+    """Create a temporary directory with sample data for testing."""
+    data_dir = tmp_path / "test_data"
+    data_dir.mkdir()
+    class_dir = data_dir / "class_a"
+    class_dir.mkdir()
+    # Aggiungi alcune immagini di esempio valide nella directory
+    for i in range(5):
+        img = Image.new('RGB', (60, 30), color = (73, 109, 137))
+        img.save(class_dir / f"image_{i}.jpg")
+    return data_dir
 
 @pytest.mark.slow
 def test_main_execution(sample_data_dir, monkeypatch):
