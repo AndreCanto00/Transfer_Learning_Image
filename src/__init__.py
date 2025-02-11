@@ -6,7 +6,7 @@ __version__ = '0.1.0'
 
 # src/data/__init__.py
 from src.data.data_loader import create_data_loaders
-from data.data_preprocessing import split_dataset
+from src.data.data_preprocessing import split_dataset
 
 # src/models/__init__.py
 from models.model import ModelBuilder
