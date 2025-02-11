@@ -1,6 +1,6 @@
 # Data Configuration
 data:
-  base_path: "Dataset/miniImageNet"
+  base_path: "Dataset"
   batch_size: 32
   num_workers: 4
   train_split: 0.7
