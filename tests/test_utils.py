@@ -48,3 +48,8 @@ def test_organize_files(tmp_path):
     assert (source_dir / "prefix1" / "prefix1_file1.txt").exists()
     assert (source_dir / "prefix1" / "prefix1_file2.txt").exists()
     assert (source_dir / "prefix2" / "prefix2_file1.txt").exists()
+    
+    # Verifica che i file siano stati spostati correttamente
+    assert not (source_dir / "prefix1_file1.txt").exists()
+    assert not (source_dir / "prefix1_file2.txt").exists()
+    assert not (source_dir / "prefix2_file1.txt").exists()

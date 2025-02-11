@@ -21,14 +21,18 @@ def test_main_execution(sample_data_dir, monkeypatch):
     """Test main script execution with minimal dataset."""
     # Mock configuration
     config = {
-        'data': {'base_path': str(sample_data_dir)},
+        'data': {
+            'base_path': str(sample_data_dir),
+            'batch_size': 2,  # Aggiungi batch_size
+            'num_workers': 0  # Aggiungi num_workers
+        },
         'training': {
             'num_epochs': 1,
             'learning_rates': [0.001],
             'weight_decays': [0.0001],
             'optimizer_names': ['Adam']
         },
-        'paths': {  # Aggiungi questa sezione per evitare il KeyError
+        'paths': {
             'output': str(sample_data_dir / "output"),
             'logs': str(sample_data_dir / "logs")
         }
