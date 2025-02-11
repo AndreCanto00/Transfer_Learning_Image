@@ -4,11 +4,15 @@ import random
 from pathlib import Path
 
 def create_test_dataset(
-    source_dir: str = "Dataset/miniImageNet",
-    test_dir: str = "Dataset/test_miniImageNet",
+    source_dir: str = "Dataset",
+    test_dir: str = "Dataset/test",
     samples_per_class: int = 10
 ):
     """Create a small test dataset for CI/CD."""
+    # Verifica se la directory di origine esiste
+    if not os.path.exists(source_dir):
+        raise FileNotFoundError(f"Source directory '{source_dir}' does not exist.")
+    
     # Create test directory
     os.makedirs(test_dir, exist_ok=True)
     
