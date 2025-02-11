@@ -1,6 +1,6 @@
 # Data Configuration
 data:
-  base_path: "Dataset"
+  base_path: "Dataset"  # Inserisci qui il percorso della directory del tuo dataset
   batch_size: 32
   num_workers: 4
   train_split: 0.7
