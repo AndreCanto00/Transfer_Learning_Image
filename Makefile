@@ -33,7 +33,7 @@ lint:
     PYTHONPATH=$(PWD)/src $(VENV_BIN)/black src/ tests/
 
 test:
-    PYTHONPATH=$(PWD)/src $(VENV_BIN)/pytest tests/ -v
+    PYTHONPATH=$(pwd)/src $(VENV_BIN)/pytest tests/ -v
 
 run:
     PYTHONPATH=$(PWD)/src $(VENV_BIN)/python main.py
