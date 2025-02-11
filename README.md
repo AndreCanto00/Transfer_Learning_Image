@@ -53,3 +53,23 @@ bustness, fine-tuning is performed multiple times, and average results are repor
 *Dec 2023*<br>
 **Davide Moricoli, Andrea Cantore, Manex Sorarrain Agirrezabala**
 </div>
+
+
+src/
+├── __init__.py
+├── data/
+│   ├── __init__.py
+│   ├── data_preprocessing.py
+│   └── data_loader.py
+├── models/
+│   ├── __init__.py
+│   ├── model.py
+│   └── training.py
+└── utils/
+    ├── __init__.py
+    └── file_operations.py
+
+config/
+└── config.yaml
+
+main.py
