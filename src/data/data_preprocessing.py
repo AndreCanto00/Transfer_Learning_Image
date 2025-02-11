@@ -3,7 +3,7 @@ from os.path import join, isfile
 import shutil
 from sklearn.model_selection import train_test_split
 from typing import Tuple, List
-from ..utils.file_operations import ensure_directory, get_class_directories, organize_files
+from src.utils.file_operations import ensure_directory, get_class_directories, organize_files
 
 def create_split_directories(base_path: str) -> Tuple[str, str, str]:
     """Create train, validation and test directories."""

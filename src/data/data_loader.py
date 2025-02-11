@@ -1,5 +1,9 @@
 import torch
-from torch.utils.data import DataLoader
+try:
+    from torch.utils.data import DataLoader
+except ImportError as e:
+    raise ImportError("Torch is not installed. Please install it using 'pip install torch'.") from e
+
 from torchvision import transforms, datasets
 from typing import Tuple
 
